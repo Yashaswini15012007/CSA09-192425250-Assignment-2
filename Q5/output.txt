@@ -1,0 +1,16 @@
+[Eagles(9,6), Bisons(9,4), Panthers(9,4), Cobras(6,1)]
+Input unchanged after ranking: true
+Tie levels: [Alpha(10,5), Beta(10,5), Zulu(10,5), Bottom(10,4), Other(9,5)]
+Broken subtraction comparator signs for (MAX,-1): compare(a,b)=-2147483648, compare(b,a)=-2147483648 (both negative; antisymmetry broken)
+TimSort contract exception reproduced: Comparison method violates its general contract!
+
+10-run average sorting benchmarks (setup excluded):
+   1000 ComparatorChain   avg=    0.339 ms min=    0.198 ms max=    0.743 ms correct=true inputUnchanged=true
+   1000 Comparable        avg=    0.511 ms min=    0.185 ms max=    1.558 ms correct=true inputUnchanged=true
+   1000 ThreeStableSorts  avg=    0.524 ms min=    0.358 ms max=    0.941 ms correct=true inputUnchanged=true
+  10000 ComparatorChain   avg=    2.745 ms min=    2.162 ms max=    4.344 ms correct=true inputUnchanged=true
+  10000 Comparable        avg=    2.428 ms min=    2.127 ms max=    3.313 ms correct=true inputUnchanged=true
+  10000 ThreeStableSorts  avg=    4.354 ms min=    3.062 ms max=    6.461 ms correct=true inputUnchanged=true
+ 100000 ComparatorChain   avg=   48.217 ms min=   35.812 ms max=   78.305 ms correct=true inputUnchanged=true
+ 100000 Comparable        avg=   40.879 ms min=   31.896 ms max=   52.726 ms correct=true inputUnchanged=true
+ 100000 ThreeStableSorts  avg=   44.969 ms min=   39.537 ms max=   51.118 ms correct=true inputUnchanged=true
