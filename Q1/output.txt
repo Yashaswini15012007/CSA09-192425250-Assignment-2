@@ -1,0 +1,27 @@
+Q1 String construction benchmark (10 measured repetitions; Java 27+35-2325)
+
+short_ticket: tickets=1, fields/ticket=8
+String       avg=0.052 ms min=0.026 ms max=0.111 ms estimated intermediates=8 avg retained-memory delta=112 bytes checksum=51
+StringBuilder avg=0.025 ms min=0.005 ms max=0.042 ms estimated intermediates=1 avg retained-memory delta=112 bytes checksum=51
+StringBuffer avg=0.022 ms min=0.006 ms max=0.034 ms estimated intermediates=1 avg retained-memory delta=112 bytes checksum=51
+
+bulk_10000x50: tickets=10000, fields/ticket=50
+String       avg=18.414 ms min=15.488 ms max=32.539 ms estimated intermediates=500000 avg retained-memory delta=424 bytes checksum=3620000
+StringBuilder avg=7.393 ms min=6.582 ms max=9.919 ms estimated intermediates=10000 avg retained-memory delta=424 bytes checksum=3620000
+StringBuffer avg=9.785 ms min=6.968 ms max=19.176 ms estimated intermediates=10000 avg retained-memory delta=424 bytes checksum=3620000
+
+custom_5000_fields: tickets=1, fields/ticket=5000
+String       avg=11.284 ms min=10.214 ms max=13.444 ms estimated intermediates=5000 avg retained-memory delta=45832 bytes checksum=45765
+StringBuilder avg=0.100 ms min=0.080 ms max=0.188 ms estimated intermediates=1 avg retained-memory delta=45832 bytes checksum=45765
+StringBuffer avg=0.086 ms min=0.081 ms max=0.094 ms estimated intermediates=1 avg retained-memory delta=45832 bytes checksum=45765
+
+Alternative builders on the short 8-field ticket (10 repetitions each):
+String.join  avg=0.011 ms min=0.008 ms max=0.024 ms checksum=51
+StringJoiner avg=0.015 ms min=0.007 ms max=0.033 ms checksum=51
+String.format avg=0.018 ms min=0.009 ms max=0.032 ms checksum=51
+
+Shared multithreaded log (8 threads x 20,000 appends):
+StringBuilder: expected=160000, actual=44635, workerErrors=0 (lost/corrupt appends observed)
+StringBuffer:  expected=160000, actual=160000, workerErrors=0 (correct this run)
+Memory deltas are approximate retained-heap deltas after GC; JVM heap sizing and object layout affect them.
+Object estimates count one resulting String per String concatenation loop iteration; they are source-level estimates, not allocation-profiler counts.
