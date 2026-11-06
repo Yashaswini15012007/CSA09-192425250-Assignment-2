@@ -1,0 +1,58 @@
+Q4 pharmacy inventory benchmark; 10 measured repetitions; Java 27+35-2325
+
+1000 medicines (insertion order is descending code):
+HashMap       put               avg=    0.201 ms min=    0.141 ms max=    0.312 ms orderMatches=n/a
+HashMap       lookup            avg=    1.142 ms min=    0.454 ms max=    3.395 ms orderMatches=n/a
+HashMap       code_report       avg=    0.196 ms min=    0.153 ms max=    0.395 ms orderMatches=true
+HashMap       insertion_report  avg=    0.073 ms min=    0.066 ms max=    0.082 ms orderMatches=true
+TreeMap       put               avg=    0.400 ms min=    0.099 ms max=    1.770 ms orderMatches=n/a
+TreeMap       lookup            avg=    3.535 ms min=    3.079 ms max=    4.137 ms orderMatches=n/a
+TreeMap       code_report       avg=    0.144 ms min=    0.110 ms max=    0.192 ms orderMatches=true
+TreeMap       insertion_report  avg=    0.113 ms min=    0.092 ms max=    0.161 ms orderMatches=true
+LinkedHashMap put               avg=    0.161 ms min=    0.124 ms max=    0.341 ms orderMatches=n/a
+LinkedHashMap lookup            avg=    0.818 ms min=    0.497 ms max=    1.549 ms orderMatches=n/a
+LinkedHashMap code_report       avg=    0.116 ms min=    0.080 ms max=    0.212 ms orderMatches=true
+LinkedHashMap insertion_report  avg=    0.043 ms min=    0.024 ms max=    0.163 ms orderMatches=true
+SortedArray   put               avg=    0.024 ms min=    0.018 ms max=    0.038 ms orderMatches=n/a
+SortedArray   lookup            avg=    2.197 ms min=    1.897 ms max=    2.880 ms orderMatches=n/a
+SortedArray   code_report       avg=    0.020 ms min=    0.008 ms max=    0.032 ms orderMatches=true
+SortedArray   insertion_report  avg=    0.053 ms min=    0.029 ms max=    0.092 ms orderMatches=true
+
+100000 medicines (insertion order is descending code):
+HashMap       put               avg=    6.101 ms min=    1.999 ms max=   18.377 ms orderMatches=n/a
+HashMap       lookup            avg=    0.781 ms min=    0.655 ms max=    1.207 ms orderMatches=n/a
+HashMap       code_report       avg=    3.276 ms min=    2.049 ms max=    5.948 ms orderMatches=true
+HashMap       insertion_report  avg=    1.884 ms min=    0.883 ms max=    8.230 ms orderMatches=true
+TreeMap       put               avg=   14.014 ms min=   11.600 ms max=   26.456 ms orderMatches=n/a
+TreeMap       lookup            avg=    8.162 ms min=    6.636 ms max=   10.325 ms orderMatches=n/a
+TreeMap       code_report       avg=    9.189 ms min=    6.820 ms max=   10.942 ms orderMatches=true
+TreeMap       insertion_report  avg=    8.853 ms min=    7.865 ms max=   10.947 ms orderMatches=true
+LinkedHashMap put               avg=    2.981 ms min=    1.853 ms max=    9.777 ms orderMatches=n/a
+LinkedHashMap lookup            avg=    0.574 ms min=    0.488 ms max=    0.795 ms orderMatches=n/a
+LinkedHashMap code_report       avg=    2.082 ms min=    1.629 ms max=    3.513 ms orderMatches=true
+LinkedHashMap insertion_report  avg=    0.990 ms min=    0.777 ms max=    1.832 ms orderMatches=true
+SortedArray   put               avg=    0.434 ms min=    0.243 ms max=    2.015 ms orderMatches=n/a
+SortedArray   lookup            avg=    3.869 ms min=    3.582 ms max=    4.238 ms orderMatches=n/a
+SortedArray   code_report       avg=    0.194 ms min=    0.062 ms max=    0.460 ms orderMatches=true
+SortedArray   insertion_report  avg=    6.864 ms min=    6.336 ms max=    7.595 ms orderMatches=true
+
+1000000 medicines (insertion order is descending code):
+HashMap       put               avg=   33.773 ms min=   16.686 ms max=  125.544 ms orderMatches=n/a
+HashMap       lookup            avg=    0.786 ms min=    0.607 ms max=    1.095 ms orderMatches=n/a
+HashMap       code_report       avg=   40.107 ms min=   25.637 ms max=  118.508 ms orderMatches=true
+HashMap       insertion_report  avg=   23.350 ms min=    9.361 ms max=  129.590 ms orderMatches=true
+TreeMap       put               avg=  262.608 ms min=  217.866 ms max=  299.996 ms orderMatches=n/a
+TreeMap       lookup            avg=    9.579 ms min=    6.339 ms max=   12.724 ms orderMatches=n/a
+TreeMap       code_report       avg=  133.742 ms min=  116.802 ms max=  168.453 ms orderMatches=true
+TreeMap       insertion_report  avg=  120.632 ms min=   85.817 ms max=  137.418 ms orderMatches=true
+LinkedHashMap put               avg=   77.331 ms min=   18.657 ms max=  588.152 ms orderMatches=n/a
+LinkedHashMap lookup            avg=    1.066 ms min=    0.722 ms max=    1.761 ms orderMatches=n/a
+LinkedHashMap code_report       avg=   46.470 ms min=   19.287 ms max=  225.253 ms orderMatches=true
+LinkedHashMap insertion_report  avg=   14.487 ms min=    7.335 ms max=   54.601 ms orderMatches=true
+SortedArray   put               avg=    0.682 ms min=    0.582 ms max=    0.974 ms orderMatches=n/a
+SortedArray   lookup            avg=    3.852 ms min=    3.675 ms max=    4.294 ms orderMatches=n/a
+SortedArray   code_report       avg=    0.283 ms min=    0.229 ms max=    0.361 ms orderMatches=true
+SortedArray   insertion_report  avg=   39.579 ms min=   37.876 ms max=   42.448 ms orderMatches=true
+
+Lookup target: <1 ms per lookup; batch target: <100 ms per 100,000 lookups.
+HashMap iteration order is intentionally not asserted; reports sort or follow a tracked insertion-key array.
