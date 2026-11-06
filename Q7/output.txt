@@ -1,0 +1,6 @@
+Q7 paired ticket-construction validation; identical 5,000 fields; 10 measured repetitions; Java 27+35-2325
+Exact output equality: true; output length=45765
+String       avg=   13.184 ms min=   11.433 ms max=   15.346 ms estimated intermediate strings=5000 avg retained-memory delta=45869 bytes checksum=45765
+StringBuilder avg=    0.181 ms min=    0.065 ms max=    0.384 ms estimated intermediate strings=1 avg retained-memory delta=45808 bytes checksum=45765
+Mean time reduction: 98.63%; speedup: 72.98x; estimated intermediate-string reduction: 99.98%
+Retained memory is measured after GC with the returned output kept alive; it excludes transient allocation totals and is approximate.
